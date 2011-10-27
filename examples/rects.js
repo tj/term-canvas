@@ -34,7 +34,7 @@ setInterval(function(){
   ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   ctx.strokeStyle = 'green';
   ctx.strokeRect(x += sx, 2, 30, 5);
-  ctx.strokeStyle = 'yellow';
+  ctx.fillStyle = 'yellow';
   ctx.fillRect(x2 += sx2, 5, 10, 5);
   ctx.moveTo(0, 10);
   if (x + 30 >= canvas.width || x <= 1) sx = -sx;
