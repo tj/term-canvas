@@ -22,9 +22,9 @@ process.on('SIGWINCH', function(){
 
 var canvas = new Canvas(size[1], size[0])
   , ctx = canvas.getContext('2d')
-  , x = 0
+  , x = 1
   , dx = 1
-  , x2 = 0
+  , x2 = 1
   , dx2 = .5;
 
 ctx.hideCursor();
