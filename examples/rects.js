@@ -23,9 +23,9 @@ process.on('SIGWINCH', function(){
 var canvas = new Canvas(size[1], size[0])
   , ctx = canvas.getContext('2d')
   , x = 1
-  , dx = 1
+  , sx = 2
   , x2 = 1
-  , dx2 = .5;
+  , sx2 = 1;
 
 ctx.hideCursor();
 setInterval(function(){
@@ -33,8 +33,10 @@ setInterval(function(){
   ctx.strokeStyle = 'blue';
   ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   ctx.strokeStyle = 'green';
-  ctx.strokeRect(x += dx, 2, 30, 5);
+  ctx.strokeRect(x += sx, 2, 30, 5);
   ctx.strokeStyle = 'yellow';
-  ctx.fillRect(x2 += dx2, 5, 20, 5);
+  ctx.fillRect(x2 += sx2, 5, 20, 5);
   ctx.moveTo(0, 10);
+  if (x + 30 >= canvas.width || x <= 1) sx = -sx;
+  if (x2 + 20 >= canvas.width || x2 <= 1) sx2 = -sx2; 
 }, 1000 / 20);
