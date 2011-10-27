@@ -5,7 +5,7 @@
 
 ## Examples
 
- Draw some racing rectangles:
+ Some random moving rects:
  
 ```js
 var Canvas = require('../')
@@ -27,21 +27,23 @@ process.on('SIGWINCH', function(){
 
 var canvas = new Canvas(size[1], size[0])
   , ctx = canvas.getContext('2d')
-  , x = 0
-  , y = 0
-  , x2 = 0
-  , y2 = 0;
+  , x = 1
+  , sx = 2
+  , x2 = 1
+  , sx2 = 1;
 
 ctx.hideCursor();
 setInterval(function(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = 'gray';
-  ctx.strokeRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = 'blue';
+  ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   ctx.strokeStyle = 'green';
-  ctx.strokeRect(x++, 2, 30, 5);
+  ctx.strokeRect(x += sx, 2, 30, 5);
   ctx.strokeStyle = 'yellow';
-  ctx.strokeRect(x2 += .5, 5, 20, 5);
+  ctx.fillRect(x2 += sx2, 5, 10, 5);
   ctx.moveTo(0, 10);
+  if (x + 30 >= canvas.width || x <= 1) sx = -sx;
+  if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2; 
 }, 1000 / 20);
 ```
 
