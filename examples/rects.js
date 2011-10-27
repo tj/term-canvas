@@ -35,6 +35,6 @@ setInterval(function(){
   ctx.strokeStyle = 'green';
   ctx.strokeRect(x++, 2, 30, 5);
   ctx.strokeStyle = 'yellow';
-  ctx.strokeRect(x2 += .5, 5, 20, 5);
+  ctx.fillRect(x2 += .5, 5, 20, 5);
   ctx.moveTo(0, 10);
 }, 1000 / 20);
