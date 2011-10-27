@@ -34,7 +34,7 @@ var canvas = new Canvas(size[1], size[0])
 
 ctx.hideCursor();
 setInterval(function(){
-  ctx.clear();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = 'gray';
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = 'green';
