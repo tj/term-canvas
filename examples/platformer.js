@@ -28,13 +28,29 @@ var canvas = new Canvas(size[1], size[0])
   , sx = 0
   , sy = 0
   , x = 1
-  , y = canvas.height - h;
+  , jumping = false
+  , y = canvas.height - h
+  , oy = y;
 
 ctx.hideCursor();
 setInterval(function(){
+  // move
   x += sx;
-  y += sy;
   sx *= .5;
+
+  // jump
+  if (jumping) {
+    y += sy;
+    sy *= .1;
+    if (sy < 0) {
+      sy = 5;
+      jumping = false;
+    }
+  } else if (sy) {
+    y = Math.min(y + sy, oy);
+    sy *= .1;
+  }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // player
@@ -52,6 +68,8 @@ process.stdin.on('keypress', function(char, key){
       if (key.ctrl) process.kill(process.pid, 'SIGINT');
       break;
     case 'up':
+      sy = -5;
+      jumping = true;
       break;
     case 'left':
       sx = 5;
