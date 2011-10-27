@@ -36,9 +36,9 @@ setInterval(function(){
   ctx.strokeStyle = 'green';
   ctx.strokeRect(x += sx, 2, 30, 5);
   ctx.fillStyle = 'yellow';
-  ctx.fillRect(x2 += sx2, 5, 10, 5);
+  ctx.fillRect(x2 += sx2, 5, 12, 5);
   ctx.fillStyle = 'white';
-  ctx.fillText('fill', x2 + 2, 7);
+  ctx.fillText('Rectangle', x2 + 1, 7);
   ctx.moveTo(0, 10);
   if (x + 30 >= canvas.width || x <= 1) sx = -sx;
   if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2; 
