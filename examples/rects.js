@@ -35,8 +35,8 @@ setInterval(function(){
   ctx.strokeStyle = 'green';
   ctx.strokeRect(x += sx, 2, 30, 5);
   ctx.strokeStyle = 'yellow';
-  ctx.fillRect(x2 += sx2, 5, 20, 5);
+  ctx.fillRect(x2 += sx2, 5, 10, 5);
   ctx.moveTo(0, 10);
   if (x + 30 >= canvas.width || x <= 1) sx = -sx;
-  if (x2 + 20 >= canvas.width || x2 <= 1) sx2 = -sx2; 
+  if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2; 
 }, 1000 / 20);
