@@ -19,6 +19,7 @@ process.on('SIGWINCH', function(){
   canvas.width = size[1];
   canvas.height = size[0];
   x2 = x = 1;
+  y2 = y = 1;
 });
 
 var canvas = new Canvas(size[1], size[0])
