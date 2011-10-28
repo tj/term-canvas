@@ -54,8 +54,6 @@ process.stdin.on('keypress', function(char, key){
       if (key.ctrl) process.kill(process.pid, 'SIGINT');
       break;
     case 'up':
-      sy = -5;
-      jumping = true;
       break;
     case 'left':
       sx = 5;
