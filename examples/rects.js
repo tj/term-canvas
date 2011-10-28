@@ -18,23 +18,28 @@ process.on('SIGWINCH', function(){
   size = tty.getWindowSize();
   canvas.width = size[1];
   canvas.height = size[0];
+  x2 = x = 1;
 });
 
 var canvas = new Canvas(size[1], size[0])
   , ctx = canvas.getContext('2d')
-  , x = 0
-  , y = 0
-  , x2 = 0
-  , y2 = 0;
+  , x = 1
+  , sx = 2
+  , x2 = 1
+  , sx2 = 1;
 
 ctx.hideCursor();
 setInterval(function(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = 'gray';
+  ctx.strokeStyle = 'blue';
   ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   ctx.strokeStyle = 'green';
-  ctx.strokeRect(x++, 2, 30, 5);
-  ctx.strokeStyle = 'yellow';
-  ctx.strokeRect(x2 += .5, 5, 20, 5);
+  ctx.strokeRect(x += sx, 2, 30, 5);
+  ctx.fillStyle = 'yellow';
+  ctx.fillRect(x2 += sx2, 5, 12, 5);
+  ctx.fillStyle = 'white';
+  ctx.fillText('Rectangle', x2 + 1, 7);
   ctx.moveTo(0, 10);
+  if (x + 30 >= canvas.width || x <= 1) sx = -sx;
+  if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2; 
 }, 1000 / 20);
