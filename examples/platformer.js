@@ -18,7 +18,7 @@ process.on('SIGWINCH', function(){
   size = tty.getWindowSize();
   canvas.width = size[1];
   canvas.height = size[0];
-  x2 = x = 1;
+  y = canvas.height - h;
 });
 
 var canvas = new Canvas(size[1], size[0])
