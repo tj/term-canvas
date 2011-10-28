@@ -29,27 +29,13 @@ var canvas = new Canvas(size[1], size[0])
   , sy = 0
   , x = 1
   , jumping = false
-  , y = canvas.height - h
-  , oy = y;
+  , y = canvas.height - h;
 
 ctx.hideCursor();
 setInterval(function(){
   // move
   x += sx;
   sx *= .5;
-
-  // jump
-  if (jumping) {
-    y += sy;
-    sy *= .1;
-    if (sy < 0) {
-      sy = 5;
-      jumping = false;
-    }
-  } else if (sy) {
-    y = Math.min(y + sy, oy);
-    sy *= .1;
-  }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
