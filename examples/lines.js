@@ -30,7 +30,7 @@ setInterval(function(){
   ctx.beginPath();
   ctx.lineTo(5, 5);
   ctx.lineTo(15, 10);
-  ctx.lineTo(25, 5);
+  ctx.lineTo(40, 5);
   ctx.lineTo(5, 5);
   ctx.stroke();
 }, 1000 / 20);
