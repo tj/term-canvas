@@ -17,9 +17,5 @@ ctx.fillRect(27, 5, 20, 10);
 ctx.fillStyle = 'yellow';
 ctx.fillRect(49, 5, 20, 10);
 
-// TODO: method for this
 console.log('\n\n\n');
-ctx.fillStyle = 'normal';
-ctx.strokeStyle = 'normal';
-ctx.applyFillStyle();
-ctx.applyStrokeStyle();
+ctx.resetState();
