@@ -4,8 +4,7 @@
  */
 
 var Canvas = require('../')
-  , tty = require('tty')
-  , size = tty.getWindowSize();
+  , size = process.stdout.getWindowSize();
 
 process.on('SIGINT', function(){
   ctx.restore();
@@ -15,14 +14,14 @@ process.on('SIGINT', function(){
 });
 
 process.on('SIGWINCH', function(){
-  size = tty.getWindowSize();
-  canvas.width = size[1];
-  canvas.height = size[0];
+  size = process.stdout.getWindowSize();
+  canvas.width = size[0];
+  canvas.height = size[1];
   x2 = x = 1;
   y2 = y = 1;
 });
 
-var canvas = new Canvas(size[1], size[0])
+var canvas = new Canvas(size[0], size[1])
   , ctx = canvas.getContext('2d')
   , x = 1
   , y = 2
