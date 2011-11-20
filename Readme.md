@@ -5,7 +5,29 @@
 
 ## Examples
 
- Some random moving rects:
+ Static colored rects with no draw loop:
+
+```js
+var Canvas = require('../');
+
+var canvas = new Canvas(50, 100)
+  , ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'red';
+ctx.fillRect(5, 5, 20, 10);
+
+ctx.fillStyle = 'blue';
+ctx.fillRect(27, 5, 20, 10);
+
+ctx.fillStyle = 'yellow';
+ctx.fillRect(49, 5, 20, 10);
+
+console.log('\n\n\n');
+ctx.resetState();
+
+```
+
+ Some random moving rects with a draw loop:
  
 ```js
 var Canvas = require('../')
