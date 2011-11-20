@@ -3,6 +3,16 @@
 
   experimental html canvas API for the terminal written with node.js.
 
+## Screenshots
+
+ States:
+
+   ![state](http://f.cl.ly/items/0H1E3u371y1o3q2l2G2p/Grab.png)
+
+ Rects:
+ 
+   ![rects](http://f.cl.ly/items/3v3F3j2C0Q3H3t1C0r29/Grab.png)
+
 ## Examples
 
  Static colored rects with no draw loop:
