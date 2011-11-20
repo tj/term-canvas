@@ -9,7 +9,7 @@ var canvas = new Canvas(50, 50)
   , ctx = canvas.getContext('2d');
 
 process.on('SIGINT', function(){
-  ctx.restore();
+  ctx.reset();
   process.nextTick(function(){
     process.exit();
   });

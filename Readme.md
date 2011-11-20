@@ -9,23 +9,22 @@
  
 ```js
 var Canvas = require('../')
-  , tty = require('tty')
-  , size = tty.getWindowSize();
+  , size = process.stdout.getWindowSize();
 
 process.on('SIGINT', function(){
-  ctx.restore();
+  ctx.reset();
   process.nextTick(function(){
     process.exit();
   });
 });
 
 process.on('SIGWINCH', function(){
-  size = tty.getWindowSize();
-  canvas.width = size[1];
-  canvas.height = size[0];
+  size = process.stdout.getWindowSize();
+  canvas.width = size[0];
+  canvas.height = size[1];
 });
 
-var canvas = new Canvas(size[1], size[0])
+var canvas = new Canvas(size[10], size[1])
   , ctx = canvas.getContext('2d')
   , x = 1
   , sx = 2

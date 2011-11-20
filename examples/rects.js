@@ -7,7 +7,7 @@ var Canvas = require('../')
   , size = process.stdout.getWindowSize();
 
 process.on('SIGINT', function(){
-  ctx.restore();
+  ctx.reset();
   process.nextTick(function(){
     process.exit();
   });

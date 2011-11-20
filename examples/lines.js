@@ -8,7 +8,7 @@ var Canvas = require('../')
   , size = tty.getWindowSize();
 
 process.on('SIGINT', function(){
-  ctx.restore();
+  ctx.reset();
   process.nextTick(function(){
     process.exit();
   });
