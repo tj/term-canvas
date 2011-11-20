@@ -3,22 +3,63 @@
 
   experimental html canvas API for the terminal written with node.js.
 
-## Screenshots
+## Installation
 
- States:
-
-   ![state](http://f.cl.ly/items/0H1E3u371y1o3q2l2G2p/Grab.png)
-
- Rects:
- 
-   ![rects](http://f.cl.ly/items/3v3F3j2C0Q3H3t1C0r29/Grab.png)
+```
+$ npm install term-canvas
+```
 
 ## Examples
 
- Static colored rects with no draw loop:
+### States
+
+  ![state](http://f.cl.ly/items/0H1E3u371y1o3q2l2G2p/Grab.png)
+
+ Source:
 
 ```js
-var Canvas = require('../');
+
+/**
+ * Module dependencies.
+ */
+
+var Canvas = require('term-canvas');
+
+var canvas = new Canvas(50, 100)
+  , ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'red';
+ctx.fillRect(5, 5, 20, 10);
+ctx.save();
+
+ctx.fillStyle = 'blue';
+ctx.fillRect(6, 6, 18, 8);
+ctx.save();
+
+ctx.fillStyle = 'yellow';
+ctx.fillRect(7, 7, 16, 6);
+
+ctx.restore();
+ctx.fillRect(8, 8, 14, 4);
+
+ctx.restore();
+ctx.fillRect(9, 9, 12, 2);
+
+
+console.log('\n\n\n\n\n');
+ctx.resetState();
+```
+
+### Fill styles
+
+ Static colored rects with no draw loop:
+ 
+ ![rects](http://f.cl.ly/items/3v3F3j2C0Q3H3t1C0r29/Grab.png)
+
+Source:
+
+```js
+var Canvas = require('term-canvas');
 
 var canvas = new Canvas(50, 100)
   , ctx = canvas.getContext('2d');
@@ -37,10 +78,19 @@ ctx.resetState();
 
 ```
 
- Some random moving rects with a draw loop:
- 
+### Animation
+
+  ![animated rects](http://f.cl.ly/items/0s121k3C2R1R0q2w2I1y/Grab.png)
+
+ Source:
+
 ```js
-var Canvas = require('../')
+
+/**
+ * Module dependencies.
+ */
+
+var Canvas = require('term-canvas')
   , size = process.stdout.getWindowSize();
 
 process.on('SIGINT', function(){
@@ -54,14 +104,20 @@ process.on('SIGWINCH', function(){
   size = process.stdout.getWindowSize();
   canvas.width = size[0];
   canvas.height = size[1];
+  x2 = x = 1;
+  y2 = y = 1;
 });
 
-var canvas = new Canvas(size[10], size[1])
+var canvas = new Canvas(size[0], size[1])
   , ctx = canvas.getContext('2d')
   , x = 1
+  , y = 2
   , sx = 2
+  , sy = 2
   , x2 = 1
-  , sx2 = 1;
+  , y2 = 5
+  , sx2 = 1
+  , sy2 = 1;
 
 ctx.hideCursor();
 setInterval(function(){
@@ -69,12 +125,16 @@ setInterval(function(){
   ctx.strokeStyle = 'blue';
   ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   ctx.strokeStyle = 'green';
-  ctx.strokeRect(x += sx, 2, 30, 5);
+  ctx.strokeRect(x += sx, y += sy, 30, 5);
   ctx.fillStyle = 'yellow';
-  ctx.fillRect(x2 += sx2, 5, 10, 5);
+  ctx.fillRect(x2 += sx2, y2 += sy2, 12, 5);
+  ctx.fillStyle = 'white';
+  ctx.fillText('Rectangle', x2 + 1, y2 + 2);
   ctx.moveTo(0, 10);
   if (x + 30 >= canvas.width || x <= 1) sx = -sx;
-  if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2; 
+  if (x2 + 10 >= canvas.width || x2 <= 1) sx2 = -sx2;
+  if (y + 5 >= canvas.height || y <= 1) sy = -sy;
+  if (y2 + 5 >= canvas.height || y2 <= 1) sy2 = -sy2;
 }, 1000 / 20);
 ```
 
