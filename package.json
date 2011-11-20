@@ -1,6 +1,6 @@
 {
     "name": "term-canvas"
-  , "version": "0.0.2"
+  , "version": "0.0.3"
   , "description": "Terminal canvas api written with node.js"
   , "keywords": ["canvas", "ascii", "ansi", "terminal", "shell"]
   , "author": "TJ Holowaychuk <tj@vision-media.ca>"
