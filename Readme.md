@@ -18,11 +18,6 @@ $ npm install term-canvas
  Source:
 
 ```js
-
-/**
- * Module dependencies.
- */
-
 var Canvas = require('term-canvas');
 
 var canvas = new Canvas(50, 100)
@@ -44,7 +39,6 @@ ctx.fillRect(8, 8, 14, 4);
 
 ctx.restore();
 ctx.fillRect(9, 9, 12, 2);
-
 
 console.log('\n\n\n\n\n');
 ctx.resetState();
@@ -85,11 +79,6 @@ ctx.resetState();
  Source:
 
 ```js
-
-/**
- * Module dependencies.
- */
-
 var Canvas = require('term-canvas')
   , size = process.stdout.getWindowSize();
 
