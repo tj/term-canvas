@@ -3,6 +3,8 @@
 
   experimental html canvas API for the terminal written with node.js.
 
+ ![terminal canvas chart](http://f.cl.ly/items/0s112y02180S0l0N0u12/Grab.png)
+
 ## Installation
 
 ```
