@@ -129,6 +129,10 @@ setInterval(function(){
 }, 1000 / 20);
 ```
 
+## Tests
+
+  There are none! currently testing with OSX "Terminal".
+
 ## License 
 
 (The MIT License)
