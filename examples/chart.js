@@ -22,4 +22,4 @@ data.forEach(function(n){
 });
 
 ctx.resetState();
-console.log('\n\n\n\n\n');
+console.log('\n\n\n');
