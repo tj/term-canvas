@@ -20,6 +20,8 @@ function rand() {
   return Math.random() * 5 | 0;
 }
 
+ctx.hideCursor();
+
 setInterval(function(){
   var data = [rand(), rand(), rand(), rand(), rand(), rand()]
     , max = data.max()
