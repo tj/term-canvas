@@ -7,6 +7,8 @@ var data = [1, 2, 3, 2, 5, 1]
   , max = 5
   , x = 3;
 
+ctx.clear();
+
 data.forEach(function(n){
   var y = 20
     , w = 8

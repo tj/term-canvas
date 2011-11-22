@@ -8,6 +8,8 @@ var Canvas = require('../');
 var canvas = new Canvas(50, 100)
   , ctx = canvas.getContext('2d');
 
+ctx.clear();
+
 ctx.fillStyle = 'red';
 ctx.fillRect(5, 5, 20, 10);
 
