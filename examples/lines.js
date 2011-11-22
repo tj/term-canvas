@@ -21,7 +21,9 @@ process.on('SIGWINCH', function(){
 });
 
 var canvas = new Canvas(size[1], size[0])
-  , ctx = canvas.getContext('2d');
+  , ctx = canvas.getContext('2d')
+  , x = 15
+  , y = 10;
 
 ctx.hideCursor();
 setInterval(function(){
@@ -29,7 +31,7 @@ setInterval(function(){
   ctx.strokeStyle = 'yellow';
   ctx.beginPath();
   ctx.lineTo(5, 5);
-  ctx.lineTo(15, 10);
+  ctx.lineTo(x += .2, y += .1);
   ctx.lineTo(40, 5);
   ctx.lineTo(5, 5);
   ctx.stroke();
