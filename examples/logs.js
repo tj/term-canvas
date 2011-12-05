@@ -24,18 +24,31 @@ var canvas = new Canvas(size[0], size[1])
   , ctx = canvas.getContext('2d')
   , a = new Log(5, 2, 20, 10).title('express')
   , b = new Log(20, 2, 20, 10).title('tap')
-  , c = new Log(35, 2, 20, 10).title('mocha');
+  , c = new Log(35, 2, 20, 10).title('mocha')
+  , d = new Log(50, 2, 20, 10).title('request')
+  , objs = [a];
 
 ctx.hideCursor();
 setInterval(function(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  a.draw(ctx);
-  b.draw(ctx);
-  c.draw(ctx);
+  objs.forEach(function(obj){
+    obj.draw(ctx);
+  });
 }, 1000 / 20);
+
+setTimeout(function(){
+  objs.push(b);
+  setTimeout(function(){
+    objs.push(c);
+    setTimeout(function(){
+      objs.push(d);
+    }, 300);
+  }, 200);
+}, 100);
 
 setInterval(function(){
   a.write(['something', 'else', 'happened'][Math.random() * 3 | 0]);
+  d.write(['something', 'else', 'happened'][Math.random() * 3 | 0]);
 }, 200);
 
 setInterval(function(){
