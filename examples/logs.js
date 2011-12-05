@@ -4,7 +4,8 @@
  */
 
 var Canvas = require('../')
-  , size = process.stdout.getWindowSize();
+  , size = process.stdout.getWindowSize()
+  , Log = require('./log');
 
 process.on('SIGINT', function(){
   ctx.reset();
@@ -18,42 +19,6 @@ process.on('SIGWINCH', function(){
   canvas.width = size[0];
   canvas.height = size[1];
 });
-
-function Log(x, y, w, h) {
-  this.x = x;
-  this.y = y;
-  this.w = w;
-  this.h = h;
-  this.lines = [];
-}
-
-Log.prototype.title = function(str){
-  this._title = str;
-  return this;
-};
-
-Log.prototype.write = function(line){
-  this.lines.push(line);
-  return this;
-};
-
-Log.prototype.draw = function(ctx){
-  var y = 0;
-  ctx.save();
-  ctx.translate(this.x, this.y);
-
-  if (this._title) {
-    ctx.fillStyle = 'white';
-    ctx.fillText(this._title, 0, 0);
-  }
-
-  ctx.fillStyle = 'cyan';
-  this.lines.forEach(function(line){
-    ctx.fillText(line, 0, y += 1);
-  });
-  ctx.restore();
-};
-
 
 var canvas = new Canvas(size[0], size[1])
   , ctx = canvas.getContext('2d')
