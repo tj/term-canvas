@@ -32,7 +32,12 @@ grid.add(new Package('mocha'));
 grid.add(new Package('request'));
 grid.add(new Package('jade'));
 grid.add(new Package('swig'));
+grid.add(new Package('ejs'));
 grid.add(new Package('socket.io'));
+grid.add(new Package('log'));
+grid.add(new Package('flatiron'));
+grid.add(new Package('formidable'));
+grid.add(new Package('cluster'));
 
 ctx.hideCursor();
 setInterval(function(){
