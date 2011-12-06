@@ -22,10 +22,10 @@ process.on('SIGWINCH', function(){
 
 var canvas = new Canvas(size[0], size[1])
   , ctx = canvas.getContext('2d')
-  , a = new Log(5, 2, 20, 10).title('express')
-  , b = new Log(20, 2, 20, 10).title('tap')
-  , c = new Log(35, 2, 20, 10).title('mocha')
-  , d = new Log(50, 2, 20, 10).title('request')
+  , a = new Log(5, 2).title('express')
+  , b = new Log(20, 2).title('tap')
+  , c = new Log(35, 2).title('mocha')
+  , d = new Log(50, 2).title('request')
   , objs = [a];
 
 ctx.hideCursor();

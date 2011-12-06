@@ -1,11 +1,9 @@
 
 module.exports = Log;
 
-function Log(x, y, w, h) {
+function Log(x, y) {
   this.x = x;
   this.y = y;
-  this.w = w;
-  this.h = h;
   this.lines = [];
 }
 
