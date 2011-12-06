@@ -5,6 +5,8 @@
 
  ![terminal canvas chart](http://f.cl.ly/items/0s112y02180S0l0N0u12/Grab.png)
 
+  ![terminal canvas grid](http://f.cl.ly/items/3t3616131p0N032p1906/Screenshot.png)
+
 ## Installation
 
 ```
