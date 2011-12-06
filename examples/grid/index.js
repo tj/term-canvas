@@ -40,17 +40,20 @@ setInterval(function(){
   grid.draw(ctx);
 }, 1000 / 20);
 
+// faux progress
+
 var states = ['downloading', 'unpacking', 'preinstall', 'postinstall', 'link', 'complete']
-  , total = states.length
-  , curr = 0;
+  , total = states.length;
 
-function update(){
-  var state = states[curr++];
-  if (!state) return;
-  grid.objs.forEach(function(obj){
-    obj.text(state).complete(curr / total);
-  });
-}
+grid.objs.forEach(function(obj){
+  obj.curr = 0;
 
-update();
-setInterval(update, 500);
+  function update() {
+    var state = states[obj.curr++];
+    if (!state) return;
+    obj.text(state).complete(obj.curr / total);
+    setTimeout(update, Math.random() * 800);
+  }
+
+  update();
+});
