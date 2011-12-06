@@ -1,4 +1,12 @@
 
+0.0.4 / 2011-12-05 
+==================
+
+  * Added animated chart example
+  * Added grid example
+  * Added `Context2d#translate(x,y)`
+  * Added `Context2d#scale(x, y)`
+
 0.0.3 / 2011-11-20 
 ==================
 
