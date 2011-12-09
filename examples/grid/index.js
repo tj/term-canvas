@@ -38,6 +38,10 @@ grid.add(new Package('log'));
 grid.add(new Package('flatiron'));
 grid.add(new Package('formidable'));
 grid.add(new Package('cluster'));
+grid.add(new Package('expresso'));
+grid.add(new Package('term-canvas'));
+grid.add(new Package('geddy'));
+grid.add(new Package('superagent'));
 
 ctx.hideCursor();
 setInterval(function(){
