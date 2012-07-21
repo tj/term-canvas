@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var Canvas = require('./')
+var Canvas = require('../')
   , canvas = new Canvas(100, 100)
   , ctx = canvas.getContext('2d')
   , x = 0
