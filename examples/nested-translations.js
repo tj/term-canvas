@@ -15,16 +15,22 @@ ctx.save();
 ctx.translate(3, 3);
 ctx.fillStyle = 'yellow';
 ctx.fillRect(0, 0, 10, 5);
+ctx.fillStyle = 'white';
+ctx.fillText('Hey', 2, 1);
 
 ctx.save();
 ctx.translate(3, 3);
 ctx.fillStyle = 'red';
 ctx.fillRect(0, 0, 10, 5);
+ctx.fillStyle = 'white';
+ctx.fillText('Hey', 2, 1);
 
 ctx.save();
 ctx.translate(3, 3);
 ctx.fillStyle = 'blue';
 ctx.fillRect(0, 0, 10, 5);
+ctx.fillStyle = 'white';
+ctx.fillText('Hey', 2, 1);
 ctx.restore();
 
 ctx.restore();
