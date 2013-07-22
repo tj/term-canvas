@@ -4,8 +4,7 @@
  */
 
 var Canvas = require('../')
-  , tty = require('tty')
-  , size = tty.getWindowSize();
+  , size = process.stdout.getWindowSize();
 
 process.on('SIGINT', function(){
   ctx.reset();
@@ -15,7 +14,7 @@ process.on('SIGINT', function(){
 });
 
 process.on('SIGWINCH', function(){
-  size = tty.getWindowSize();
+  size = process.stdout.getWindowSize();
   canvas.width = size[1];
   canvas.height = size[0];
 });
